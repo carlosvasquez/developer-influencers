@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition template="template/layout.xhtml">
+        <ui:define name="content">
+            <br/>
+            <h:outputText escape="false" value="#{graph.postsGraphV2}"/>
+            <div id="chartPosts" style="margin-left: 5%;margin-right: 5%; height: 400px;"></div>
+            <br/>
+            <h:outputText escape="false" value="#{graph.commentsGraph}"/>
+            <div id="chartComments" style="margin-left: 5%;margin-right: 5%; height: 400px;"></div>
+        </ui:define>
+    </ui:composition>
+</html>    
