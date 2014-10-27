@@ -7,6 +7,7 @@ body{
     font-family: "Consolas";
     font-size: 13px;
     font-weight:lighter;
+    background-color: #323943;
 }
 
 @font-face {
@@ -27,7 +28,7 @@ header{
 }
 .main-menu{
     padding-top: 30px;
-    height: 70px;
+    height:45px;
     width: 80%;
     display: inline-block;
     vertical-align: bottom;
