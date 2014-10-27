@@ -1,5 +1,6 @@
 package org.devdom.influencer.bean;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
@@ -15,7 +16,7 @@ import org.devdom.influencer.model.dto.YearStat;
  */
 @ManagedBean
 @RequestScoped
-public class StatsController {
+public class StatsController implements Serializable{
     
     private final ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
     private final Map<String,String> request = externalContext.getRequestParameterMap();        

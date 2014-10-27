@@ -7,11 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
-import org.devdom.influencer.model.dao.StatDao;
 import org.devdom.influencer.model.dao.TopDao;
-import org.devdom.influencer.model.dto.FacebookProfile;
-import org.devdom.influencer.model.dto.YearStat;
 import org.devdom.influencer.model.dto.Top;
 
 /**

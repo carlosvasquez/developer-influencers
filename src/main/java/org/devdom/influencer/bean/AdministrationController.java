@@ -96,7 +96,16 @@ public class AdministrationController implements Serializable {
         return lastViewID+paramString;
     }
 
+    public String getViewx(){
+        return viewId;
+    }
+    
     public String getViewId(){
         return viewId;
     }
+    
+    public boolean isHomePage(){
+        return viewId.endsWith("index.xhtml");
+    }
+    
 }

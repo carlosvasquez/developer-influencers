@@ -1,5 +1,6 @@
 package org.devdom.influencer.bean;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -13,7 +14,7 @@ import org.devdom.influencer.model.dto.TopInteraction;
  *
  * @author Carlos Vasquez
  */
-public class TopInteractionController {
+public class TopInteractionController  implements Serializable{
     
     TopInteractionDao dao = new TopInteractionDao();
     private final ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();

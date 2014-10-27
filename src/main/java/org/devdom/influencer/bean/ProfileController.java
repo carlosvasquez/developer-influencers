@@ -1,5 +1,6 @@
 package org.devdom.influencer.bean;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,7 @@ import org.devdom.influencer.model.dto.WorkHistory;
  */
 @ManagedBean
 @RequestScoped
-public class ProfileController {
+public class ProfileController  implements Serializable{
     
     private final ProfileDao dao = new ProfileDao();
     private final ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
