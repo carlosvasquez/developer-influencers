@@ -1,21 +1,12 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
     <header>
         <img src="img/logo-di.png" id="logo" />
         <nav class="main-menu">
-            <ul class="top-ul-menu">
-                <li class="menu-top"><a href="home.html" style="color:#C7C7CD;">Inicio</a></li>
-                <li class="menu-top-sep">/</li>
-                <li class="menu-top"><a href="groups.html">Grupos</a></li>
-                <li class="menu-top-sep">/</li>
-                <li class="menu-top"><a href="skills.html">Skills</a></li>
-                <li class="menu-top-sep">/</li>
-                <li class="menu-top"><a href="university.html">Universidades</a></li>
-                <li class="menu-top-sep">/</li>
-                <li class="menu-top"><a href="workplace.html">Plazas de Trabajo</a></li>
-            </ul>
+            <h:outputText escape="false" value="${admin.CSSStyleHeaderMenu}"/>
         </nav>
     </header>
 </ui:composition>
