@@ -37,6 +37,8 @@ import org.eclipse.persistence.annotations.StoredProcedureParameter;
                                             })
 })
 public class GraphPostsStat extends GraphResult implements Serializable{
+
+    private static final long serialVersionUID = -2654534837110531132L;
     
     @Override
     public void setAmount(int amount) {

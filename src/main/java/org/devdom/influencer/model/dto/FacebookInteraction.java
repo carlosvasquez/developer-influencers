@@ -18,9 +18,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @XmlRootElement
 public class FacebookInteraction implements Serializable{
-    
-    private static final long serialVersionUID = 1L;
 
+    private static final long serialVersionUID = 7680753876925191613L;
     @Column(name = "from_id")
     private String fromId;
     

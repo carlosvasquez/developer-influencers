@@ -7,11 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
-import org.devdom.influencer.model.dao.StatDao;
+import org.apache.log4j.Logger;
 import org.devdom.influencer.model.dao.TopDao;
-import org.devdom.influencer.model.dto.FacebookProfile;
-import org.devdom.influencer.model.dto.YearStat;
 import org.devdom.influencer.model.dto.Top;
 
 /**
@@ -22,7 +19,9 @@ import org.devdom.influencer.model.dto.Top;
 @RequestScoped
 public class TopController implements Serializable{
 
+    private static final long serialVersionUID = -4814342987979306328L;
     List<Top> top;
+    private static final Logger LOG = Logger.getLogger(TopController.class);
     
     /**
      * Listado de los 20 developers más influyentes de todos los grupos
@@ -37,7 +36,7 @@ public class TopController implements Serializable{
             TopDao topdao = new TopDao();
             top = topdao.findTop20Devs(groupId);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            LOG.error(ex.getMessage(), ex);
             return null;
         }
         return top;
@@ -52,7 +51,7 @@ public class TopController implements Serializable{
             TopDao topdao = new TopDao();
             top = topdao.findTop300Devs(groupId);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            LOG.error(ex.getMessage(), ex);
             return null;
         }
         return top;

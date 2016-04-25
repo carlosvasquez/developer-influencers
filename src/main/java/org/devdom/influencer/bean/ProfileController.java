@@ -1,6 +1,6 @@
 package org.devdom.influencer.bean;
 
-import java.util.Iterator;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -22,8 +22,9 @@ import org.devdom.influencer.model.dto.WorkHistory;
  */
 @ManagedBean
 @RequestScoped
-public class ProfileController {
-    
+public class ProfileController implements Serializable{
+
+    private static final long serialVersionUID = -5000892718337884555L;
     private final ProfileDao dao = new ProfileDao();
     private final ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
     private final Map<String,String> request = externalContext.getRequestParameterMap();        
@@ -56,11 +57,11 @@ public class ProfileController {
     private String header(String title, String style1){
         return header(title, style1,"color:blue;position:relative;top:-42px;");
     }
-
+    /*
     private String header(String title){
         return header(title,"color:blue;");
     }
-
+    */
     public String getEducationPanel(){
         String html = header("Educación","color:blue;width:170px;");
         html += "<div style=\"position:relative;top:-55px;\">";

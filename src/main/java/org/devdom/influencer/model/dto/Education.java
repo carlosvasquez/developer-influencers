@@ -1,6 +1,7 @@
 package org.devdom.influencer.model.dto;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -98,14 +99,32 @@ public class Education implements Serializable {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Education)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Education other = (Education) object;
-        return (this.fromId != null || other.fromId == null) && (this.fromId == null || this.fromId.equals(other.fromId));
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Education other = (Education) obj;
+        if (!Objects.equals(this.fromId, other.fromId)) {
+            return false;
+        }
+        if (!Objects.equals(this.institutionId, other.institutionId)) {
+            return false;
+        }
+        if (!Objects.equals(this.type, other.type)) {
+            return false;
+        }
+        if (!Objects.equals(this.concentration, other.concentration)) {
+            return false;
+        }
+        return true;
     }
-
+    
     @Override
     public String toString() {
         return "Education{" + "fromId=" + fromId + ", institutionId=" + institutionId + ", type=" + type + ", concentration=" + concentration + '}';

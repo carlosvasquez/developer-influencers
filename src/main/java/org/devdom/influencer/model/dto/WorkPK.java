@@ -13,6 +13,8 @@ import javax.validation.constraints.Size;
  */
 @Embeddable
 public class WorkPK implements Serializable {
+
+    private static final long serialVersionUID = 2003773541626332733L;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 300)

@@ -28,7 +28,8 @@ import org.eclipse.persistence.annotations.StoredProcedureParameter;
                                 )
 })
 public class WorkHistory implements Serializable {
-    
+
+    private static final long serialVersionUID = 7126305115992683492L;
     @Id
     @Column(name = "work_id")
     String workId;

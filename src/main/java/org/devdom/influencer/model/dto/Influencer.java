@@ -21,7 +21,8 @@ import org.eclipse.persistence.annotations.NamedStoredProcedureQuery;
                                 resultClass=Influencer.class)
 })
 public class Influencer  implements Serializable {    
-    
+
+    private static final long serialVersionUID = 1105236971047277437L;
     @Id
     @Column(name = "position")
     private int position;

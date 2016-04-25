@@ -30,6 +30,7 @@ import org.eclipse.persistence.annotations.StoredProcedureParameter;
 })
 public class GroupAdminsInformation implements Serializable{
 
+    private static final long serialVersionUID = -4674803553032178877L;
     @Id
     @Column(name = "rank")
     String rank;

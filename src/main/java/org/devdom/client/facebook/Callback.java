@@ -30,11 +30,11 @@ public class Callback extends HttpServlet implements Serializable{
 
     private static final long serialVersionUID = -3080527969297265840L;
     private static final EntityManagerFactory EMF = Persistence.createEntityManagerFactory("jpa");
-    private AdministrationController admin;
+    private static AdministrationController admin;
     private static final Logger LOG = Logger.getLogger(Callback.class);
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
         String oauthCode = request.getParameter("code");
         admin = new AdministrationController(request);
@@ -43,7 +43,7 @@ public class Callback extends HttpServlet implements Serializable{
             facebook.getOAuthAccessToken(oauthCode);
             setProfile(request,facebook);
             response.sendRedirect(request.getContextPath() + "/");
-        } catch (FacebookException ex){ 
+        } catch (FacebookException | IOException ex){ 
             LOG.error(ex.getMessage(),ex);
             request.getSession().invalidate();
             
@@ -52,8 +52,11 @@ public class Callback extends HttpServlet implements Serializable{
             if(viewId.length()==0){
                 viewId = "index.xhtml";
             }
-
-            response.sendRedirect(request.getContextPath() + viewId);
+            try{
+                response.sendRedirect(request.getContextPath() + viewId);
+            }catch(IOException e1){
+                LOG.error(e1.getMessage(),e1);
+            }
         }
     }
     

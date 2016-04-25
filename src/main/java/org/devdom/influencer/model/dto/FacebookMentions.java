@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 })
 public class FacebookMentions extends FacebookInteraction implements Serializable{
 
+    private static final long serialVersionUID = -1445564439548199445L;
     /**
      * @return the fromId
      */

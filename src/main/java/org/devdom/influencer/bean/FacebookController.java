@@ -16,9 +16,8 @@ import org.devdom.influencer.model.dto.FacebookProfile;
 @ManagedBean
 @RequestScoped
 public class FacebookController implements Serializable{
-    
-    private static final long serialVersionUID = 1L;
-    
+
+    private static final long serialVersionUID = -3669409370022254905L;
     private final FacesContext facesContext = FacesContext.getCurrentInstance();
     private final ExternalContext externalContext = facesContext.getExternalContext();
     private final HttpSession session = (HttpSession) externalContext.getSession(true);

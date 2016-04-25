@@ -1,6 +1,7 @@
 package org.devdom.influencer.model.dto;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -30,7 +31,6 @@ import org.eclipse.persistence.annotations.StoredProcedureParameter;
 public class EducationHistory implements Serializable {
 
     private static final long serialVersionUID = 5306224326824069189L;
-
     @Id
     @Column(name = "institution_id")
     private String institutionId;
@@ -85,6 +85,47 @@ public class EducationHistory implements Serializable {
 
     public void setFromId(String fromId) {
         this.fromId = fromId;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 31 * hash + Objects.hashCode(this.institutionId);
+        hash = 31 * hash + Objects.hashCode(this.category);
+        hash = 31 * hash + Objects.hashCode(this.institution);
+        hash = 31 * hash + Objects.hashCode(this.type);
+        hash = 31 * hash + Objects.hashCode(this.fromId);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final EducationHistory other = (EducationHistory) obj;
+        if (!Objects.equals(this.institutionId, other.institutionId)) {
+            return false;
+        }
+        if (!Objects.equals(this.category, other.category)) {
+            return false;
+        }
+        if (!Objects.equals(this.institution, other.institution)) {
+            return false;
+        }
+        if (!Objects.equals(this.type, other.type)) {
+            return false;
+        }
+        if (!Objects.equals(this.fromId, other.fromId)) {
+            return false;
+        }
+        return true;
     }
 
     @Override

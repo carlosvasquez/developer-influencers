@@ -1,5 +1,6 @@
 package org.devdom.influencer.bean;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -18,8 +19,9 @@ import org.devdom.influencer.model.dto.GroupInformation;
  */
 @ManagedBean
 @RequestScoped
-public class GroupInformationController {
-    
+public class GroupInformationController implements Serializable{
+
+    private static final long serialVersionUID = -8766418676453748948L;
     private final GroupRatingDao dao = new GroupRatingDao();
     private final ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
     private final Map<String,String> request = externalContext.getRequestParameterMap();        

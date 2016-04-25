@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public abstract class GraphResult implements Serializable{
 
+    private static final long serialVersionUID = 6515157509922649588L;
     @Id 
     @Column(name = "rank")
     int rank;

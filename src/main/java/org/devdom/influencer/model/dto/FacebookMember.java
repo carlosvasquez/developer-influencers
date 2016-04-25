@@ -15,7 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "dev_dom_user")
 @XmlRootElement
 public class FacebookMember implements Serializable {
-    
+
+    private static final long serialVersionUID = -3652195785983030769L;
     @Id
     @Column(name = "uid")
     private String uid;

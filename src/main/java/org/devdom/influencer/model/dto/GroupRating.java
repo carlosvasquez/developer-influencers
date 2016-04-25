@@ -28,7 +28,8 @@ import org.eclipse.persistence.annotations.StoredProcedureParameter;
                                 )
 })
 public class GroupRating implements Serializable {
-    
+
+    private static final long serialVersionUID = -2423221249815502553L;
     @Id
     @Column(name = "group_id")
     private String groupId;

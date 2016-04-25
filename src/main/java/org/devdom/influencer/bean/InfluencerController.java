@@ -26,6 +26,7 @@ import org.primefaces.model.menu.MenuModel;
 @RequestScoped
 public class InfluencerController implements Serializable{
 
+    private static final long serialVersionUID = 5904949352201112475L;
     private final InfluencerDao dao = new InfluencerDao();
     private final List<TopThreeInformation> positionInformation = (List<TopThreeInformation>) getPositionInformation();
     private List<GroupRating> gaugeRating = null;

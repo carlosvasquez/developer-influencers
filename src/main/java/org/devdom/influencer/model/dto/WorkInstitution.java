@@ -25,7 +25,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "WorkInstitution.findByName", query = "SELECT w FROM WorkInstitution w WHERE w.name = :name"),
     @NamedQuery(name = "WorkInstitution.findByCategory", query = "SELECT w FROM WorkInstitution w WHERE w.category = :category")})
 public class WorkInstitution implements Serializable {
-    private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 5079312480265743359L;
     @Id
     @Basic(optional = false)
     @NotNull

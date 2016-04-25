@@ -38,6 +38,7 @@ import org.eclipse.persistence.annotations.StoredProcedureParameter;
 })
 public class Top  implements Serializable {    
 
+    private static final long serialVersionUID = 3851898120003056321L;
     @Id
     @Column(name = "position")
     private int position;

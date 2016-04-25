@@ -115,6 +115,8 @@ import org.eclipse.persistence.annotations.StoredProcedureParameter;
                                 )
 })
 public class GroupInformation implements Serializable{
+
+    private static final long serialVersionUID = -5627702548138785477L;
     @Basic(optional = false)
     @NotNull
     @Column(name = "post_amount")

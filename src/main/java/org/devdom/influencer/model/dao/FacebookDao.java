@@ -1,12 +1,9 @@
 package org.devdom.influencer.model.dao;
 
-import facebook4j.Comment;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
 import facebook4j.FacebookFactory;
 import facebook4j.Like;
-import facebook4j.PagableList;
-import facebook4j.Paging;
 import facebook4j.Post;
 import facebook4j.RawAPIResponse;
 import facebook4j.Reading;
@@ -23,7 +20,6 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.servlet.http.HttpServletRequest;
 import org.devdom.influencer.model.dto.FacebookComment;
 import org.devdom.influencer.model.dto.FacebookMentions;
 import org.devdom.influencer.model.dto.FacebookPost;
@@ -55,7 +51,7 @@ public class FacebookDao {
      * @deprecated 
      * @param em instancia del EntityManager
      * @param post objeto post con información del post que se procesa en el momento
-     */
+    
     public void syncMessageInformation(EntityManager em, Post post){
 
         PagableList<Comment> comments = post.getComments();
@@ -79,14 +75,15 @@ public class FacebookDao {
             }
         });
     }
-    
+     */
+
     /**
     * Sincroniza la información de facebook para cada developer
     * 
     * @deprecated 
     * @param request request from servlet
     * @param groupId identificador del grupo que se desea revisar
-    */
+    
     public void syncGroupInformation(HttpServletRequest request, String groupId){
         EntityManager em = getEntityManager();
 
@@ -138,6 +135,7 @@ public class FacebookDao {
             }
         }
     }
+    */
     
     /**
     * Retorna la cantidad total de likes que contiene un post

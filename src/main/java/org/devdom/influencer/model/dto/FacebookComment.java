@@ -22,9 +22,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "FacebookComment.findAll", query = "SELECT c FROM FacebookComment c")
 })
 public class FacebookComment implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
-    
+
+    private static final long serialVersionUID = 5701491360460511382L;
     @Column(name = "created_time")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date createTime;

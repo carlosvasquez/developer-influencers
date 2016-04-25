@@ -13,6 +13,8 @@ import javax.validation.constraints.Size;
  */
 @Embeddable
 public class GroupAdminPK implements Serializable {
+
+    private static final long serialVersionUID = 7133604320947343865L;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)

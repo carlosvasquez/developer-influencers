@@ -23,7 +23,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "GroupAdmin.findByGroupId", query = "SELECT g FROM GroupAdmin g WHERE g.groupAdminsPK.groupId = :groupId"),
     @NamedQuery(name = "GroupAdmin.findByUid", query = "SELECT g FROM GroupAdmin g WHERE g.groupAdminsPK.uid = :uid")})
 public class GroupAdmin implements Serializable {
-    private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = -947025910759386349L;
     @EmbeddedId
     protected GroupAdminPK groupAdminsPK;
 

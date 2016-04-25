@@ -56,7 +56,7 @@ public class Oauth implements Serializable{
      * @throws JSONException 
      */
     public static JSONObject getNewJSONToken() throws JSONException{
-        String newToken = getNewToken(AcceptType.APPLICATION_JSON);
+        String newToken = getNewToken(AcceptType.APPLICATION_JSON.value());
         newToken = "{"+newToken+"}";
         newToken = newToken.replace("&expires=",",expires=");
         LOG.info(newToken);
@@ -114,13 +114,27 @@ public class Oauth implements Serializable{
 
     }
 
-    private interface AcceptType{
-        String TEXT_PLAIN = "text/plain";
-        String TEXT_HTML = "text/html";
-        String IMAGE_JPG = "image/jpg";
-        String APPLICATION_JSON = "application/json";
-        String APPLICATION_PJSON = "application/pjson";
-        String TEXT_JSON = "text/json";
+    private enum AcceptType{
+        TEXT_PLAIN("text/plain"),
+        TEXT_HTML("text/html"),
+        IMAGE_JPG("image/jpg"),
+        APPLICATION_JSON("application/json"),
+        APPLICATION_PJSON("application/pjson"),
+        TEXT_JSON("text/json");
+        
+        private final String type;
+        AcceptType(String type){
+            this.type = type;
+        }
+        
+        @Override
+        public String toString() {
+            return "AcceptType{" + "type=" + type + '}';
+        }
+
+        public String value() {
+            return this.toString();
+        }
     }
 
 }

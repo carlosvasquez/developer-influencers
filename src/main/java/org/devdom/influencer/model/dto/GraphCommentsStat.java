@@ -22,7 +22,9 @@ import org.eclipse.persistence.annotations.NamedStoredProcedureQuery;
                                 resultClass=GraphCommentsStat.class)
 })
 public class GraphCommentsStat extends GraphResult implements Serializable{
-    
+
+    private static final long serialVersionUID = 4268034656495251552L;
+
     @Override
     public void setAmount(int amount) {
         super.setAmount(amount);

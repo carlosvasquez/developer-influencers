@@ -1,16 +1,9 @@
 package org.devdom.client.facebook;
 
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
 import facebook4j.Facebook;
-import facebook4j.FacebookException;
 import facebook4j.FacebookFactory;
-import facebook4j.auth.AccessToken;
 import facebook4j.conf.ConfigurationBuilder;
 import facebook4j.internal.logging.Logger;
-import facebook4j.internal.org.json.JSONException;
-import facebook4j.internal.org.json.JSONObject;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -51,7 +44,7 @@ public class SignIn extends HttpServlet{
      * @return
      * @throws FacebookException
      * @throws JSONException 
-     */
+     
     private AccessToken getRawFacebookExchangeToken() throws FacebookException, JSONException{
         
         String appId = CONFIGURATION.getOAuthAppId();
@@ -66,7 +59,13 @@ public class SignIn extends HttpServlet{
         return new AccessToken(json.getString("access_token"), json.getLong("expires"));
         
     }
+    */
     
+    /**
+     * 
+     * @param url
+     * @return 
+     
     private JSONObject getRawFacebookCall(String url){
 
         try {
@@ -91,4 +90,5 @@ public class SignIn extends HttpServlet{
         }
         return null;
     }
+    * */
 }

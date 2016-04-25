@@ -1,13 +1,10 @@
 package org.devdom.influencer.model.dto;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.devdom.influencer.util.Utils;
 import org.eclipse.persistence.annotations.Direction;
 import org.eclipse.persistence.annotations.NamedStoredProcedureQueries;
 import org.eclipse.persistence.annotations.NamedStoredProcedureQuery;
@@ -49,7 +46,8 @@ import org.eclipse.persistence.annotations.StoredProcedureParameter;
                                 )
 })
 public class TopInteraction implements Serializable {
-    
+
+    private static final long serialVersionUID = -4744115549510202029L;
     @Id
     @Column(name = "uid")
     private String uid;

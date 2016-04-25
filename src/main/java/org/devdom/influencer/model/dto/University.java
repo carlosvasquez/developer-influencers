@@ -28,7 +28,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "University.findByName", query = "SELECT u FROM University u WHERE u.name = :name"),
     @NamedQuery(name = "University.findByVotes", query = "SELECT u FROM University u WHERE u.votes = :votes")})
 public class University implements Serializable {
-    private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 7010206239803867455L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)

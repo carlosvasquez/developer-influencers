@@ -15,6 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @XmlRootElement
 public class MasterProfile implements Serializable {
+
+    private static final long serialVersionUID = 9163605965518075788L;
     @Id
     private String fromId;
     @OneToOne

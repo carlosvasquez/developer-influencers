@@ -22,8 +22,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "FacebookPost.findAll", query = "SELECT u FROM FacebookPost u")
 })
 public class FacebookPost implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = -7282257995481073279L;
     
     @Id
     @Column(name = "post_id")

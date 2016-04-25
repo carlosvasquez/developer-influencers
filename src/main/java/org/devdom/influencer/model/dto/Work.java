@@ -27,7 +27,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Work.findByWorkId", query = "SELECT w FROM Work w WHERE w.workPK.workId = :workId"),
     @NamedQuery(name = "Work.findByCreatedTime", query = "SELECT w FROM Work w WHERE w.createdTime = :createdTime")})
 public class Work implements Serializable {
-    private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 3317518504494883220L;
     @EmbeddedId
     protected WorkPK workPK;
     @Basic(optional = false)

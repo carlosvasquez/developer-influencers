@@ -15,7 +15,8 @@ import org.devdom.influencer.model.dto.GraphPostsStat;
 @ManagedBean
 @RequestScoped
 public class GraphController  implements Serializable{
-    
+
+    private static final long serialVersionUID = 4742397147879482669L;
     private final GraphDao dao = new GraphDao();
     
     /**

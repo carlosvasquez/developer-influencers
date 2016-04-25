@@ -18,18 +18,25 @@ import org.primefaces.util.Constants;
 @ManagedBean
 @RequestScoped
 public class AdministrationController implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = -7435116546916481694L;
     private FacesContext facesContext;
     private ExternalContext externalContext;    
     private UIViewRoot uiRoot;
     private String viewId;
     private final HttpSession session;
 
+    /**
+     * 
+     * @param request 
+     */
     public AdministrationController(HttpServletRequest request) {
         session = request.getSession();
     }
 
+    /**
+     * 
+     */
     public AdministrationController(){
         facesContext = FacesContext.getCurrentInstance();
         externalContext = facesContext.getExternalContext();
@@ -80,6 +87,10 @@ public class AdministrationController implements Serializable {
         }
     }
     
+    /**
+     * 
+     * @return 
+     */
     public String getLastViewId(){
         String lastViewID = (String) session.getAttribute("lastViewID");
         String paramString = "";
@@ -96,6 +107,10 @@ public class AdministrationController implements Serializable {
         return lastViewID+paramString;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public String getViewId(){
         return viewId;
     }

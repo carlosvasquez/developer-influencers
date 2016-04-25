@@ -34,7 +34,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class EducationInstitution implements Serializable {
 
     private static final long serialVersionUID = 1709372359912379489L;
-
     @Id
     @Basic(optional = false)
     @NotNull

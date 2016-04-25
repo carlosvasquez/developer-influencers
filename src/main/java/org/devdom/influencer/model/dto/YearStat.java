@@ -51,7 +51,8 @@ import org.eclipse.persistence.annotations.StoredProcedureParameter;
 @Entity
 @XmlRootElement
 public class YearStat implements Serializable {
-    
+
+    private static final long serialVersionUID = 2830831567419945148L;
     @Id
     @Column(name = "id")
     private int id;

@@ -22,9 +22,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "FacebookLikes.findAll", query = "SELECT c FROM FacebookLikes c")
 })
 public class FacebookLikes extends FacebookInteraction implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
 
+    private static final long serialVersionUID = -4522967137455611079L;
     /**
      * @return the fromId
      */

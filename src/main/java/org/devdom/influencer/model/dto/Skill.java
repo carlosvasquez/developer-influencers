@@ -28,7 +28,8 @@ import org.eclipse.persistence.annotations.StoredProcedureParameter;
                                 )
 })
 public class Skill implements Serializable {
-    
+
+    private static final long serialVersionUID = 1058236012242514460L;
     @Id
     @Column(name = "skill_id")
     String skillId;
