@@ -15,6 +15,10 @@ public class GraphDao {
     
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa");
     
+    /**
+     * 
+     * @return 
+     */
     public List<GraphPostsStat> findPostsStats(){
         
         EntityManager em = emf.createEntityManager();
@@ -45,6 +49,10 @@ public class GraphDao {
         }
     }
 
+    /**
+     * 
+     * @return 
+     */
     public List<GraphCommentsStat> findCommentsStats(){
         EntityManager em = emf.createEntityManager();
         try{

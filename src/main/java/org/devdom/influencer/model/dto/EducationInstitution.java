@@ -32,7 +32,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "EducationInstitution.findByLatitude", query = "SELECT e FROM EducationInstitution e WHERE e.latitude = :latitude"),
     @NamedQuery(name = "EducationInstitution.findByLongitude", query = "SELECT e FROM EducationInstitution e WHERE e.longitude = :longitude")})
 public class EducationInstitution implements Serializable {
-    private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 1709372359912379489L;
+
     @Id
     @Basic(optional = false)
     @NotNull

@@ -1,5 +1,6 @@
 package org.devdom.influencer.model.dao;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,26 +14,26 @@ import org.devdom.influencer.model.dto.WorkHistory;
  *
  * @author Carlos Vasquez Polanco
  */
-public class ProfileDao {
-    
-    private static final long serialVersionUID = 1L;
-    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa");
-    
+public class ProfileDao implements Serializable{
+
+    private static final long serialVersionUID = -7397141246339445686L;
+    private static final EntityManagerFactory EMF = Persistence.createEntityManagerFactory("jpa");
+
     /**
      * 
      * @param profileId
      * @return
-     * @throws Exception 
      */
-    public FacebookProfile getProfileInformation(String profileId) throws Exception{
-        EntityManager em = emf.createEntityManager();
+    public FacebookProfile getProfileInformation(String profileId){
+        EntityManager em = EMF.createEntityManager();
         try{
             return (FacebookProfile) em.createNamedQuery("profile.findProfileInformation")
                     .setParameter("from_id", profileId)
                     .getSingleResult();
         }finally{
-            if(em.isOpen())
+            if(em.isOpen()){
                 em.close();
+            }
         }
     }
     
@@ -40,10 +41,9 @@ public class ProfileDao {
      * 
      * @param profileId
      * @return
-     * @throws Exception 
      */
-    public List<Skill> getSkills(String profileId) throws Exception{
-        EntityManager em = emf.createEntityManager();
+    public List<Skill> getSkills(String profileId){
+        EntityManager em = EMF.createEntityManager();
         try{
             return em.createNamedQuery("Skill.findSkillsByUid")
                     .setParameter("from_id",profileId)
@@ -58,10 +58,9 @@ public class ProfileDao {
      * 
      * @param profileId
      * @return
-     * @throws Exception 
      */
-    public List<WorkHistory> getWorks(String profileId) throws Exception{
-        EntityManager em = emf.createEntityManager();
+    public List<WorkHistory> getWorks(String profileId){
+        EntityManager em = EMF.createEntityManager();
         try{
             return em.createNamedQuery("WorkHistory.findWorkByUid")
                     .setParameter("from_id", profileId)
@@ -72,8 +71,13 @@ public class ProfileDao {
         }
     }
     
-    public List<EducationHistory> getEducationInformation(String profileId) throws Exception{
-        EntityManager em = emf.createEntityManager();
+    /**
+     * 
+     * @param profileId
+     * @return
+     */
+    public List<EducationHistory> getEducationInformation(String profileId){
+        EntityManager em = EMF.createEntityManager();
         try{
             return em.createNamedQuery("EducationHistory.findEducationByUid")
                     .setParameter("from_id", profileId)

@@ -1,5 +1,6 @@
 package org.devdom.influencer.model.dao;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,23 +13,20 @@ import org.devdom.influencer.model.dto.GroupRating;
  *
  * @author Carlos Vásquez Polanco
  */
-public class GroupRatingDao {
+public class GroupRatingDao implements Serializable{
 
-    private final EntityManagerFactory emf;
-    public GroupRatingDao(){
-        emf = Persistence.createEntityManagerFactory("jpa");
-    }
+    private static final long serialVersionUID = -4840326276267351681L;
+    private static final EntityManagerFactory EMF = Persistence.createEntityManagerFactory("jpa");
 
     /**
      * Listado de grupos con el rating que tiene el developer en cada uno de ellos
      * 
      * @param fromId
      * @return
-     * @throws Exception 
      */
-    public List<GroupRating> findGroupsRatingByUserId(String fromId)throws Exception{
+    public List<GroupRating> findGroupsRatingByUserId(String fromId){
 
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = EMF.createEntityManager();
         try{
             return (List<GroupRating>) em.createNamedQuery("GroupRating.findGroupsRatingByUserId")
                     .setParameter("from_id", fromId)
@@ -43,11 +41,10 @@ public class GroupRatingDao {
      * General el top de los developers de un grupo determinado según el ID
      * @param groupId
      * @return
-     * @throws Exception 
      */
-    public GroupInformation findGroupInformationById(String groupId)throws Exception{
+    public GroupInformation findGroupInformationById(String groupId){
 
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = EMF.createEntityManager();
         try{
             return (GroupInformation) em.createNamedQuery("GroupInformation.findByGroupId")
                     .setParameter("group_id", groupId)
@@ -65,10 +62,9 @@ public class GroupRatingDao {
      * @param groupId
      * @param minInteraction
      * @return
-     * @throws Exception 
      */
-    public GroupInformation findDayActivityGroupById(int dayofYear,int year,String groupId, int minInteraction)throws Exception{
-        EntityManager em = emf.createEntityManager();
+    public GroupInformation findDayActivityGroupById(int dayofYear,int year,String groupId, int minInteraction){
+        EntityManager em = EMF.createEntityManager();
         try{
             return (GroupInformation) em.createNamedQuery("GroupInformation.updTopInfluencers_day")
                     .setParameter("min_interactions",minInteraction)
@@ -87,10 +83,9 @@ public class GroupRatingDao {
      * @param groupId
      * @param minInteraction
      * @return 
-     * @throws Exception 
      */
-    public GroupInformation updGroupInformationByGroupById(String groupId, int minInteraction)throws Exception{
-        EntityManager em = emf.createEntityManager();
+    public GroupInformation updGroupInformationByGroupById(String groupId, int minInteraction){
+        EntityManager em = EMF.createEntityManager();
         try{
             return (GroupInformation) em.createNamedQuery("GroupInformation.updTopInfluencers")
                     .setParameter("group_id", groupId)
@@ -109,10 +104,9 @@ public class GroupRatingDao {
      * @param min
      * @param interval
      * @return
-     * @throws Exception 
      */
-    public GroupInformation updGroupInformationYearByIntervalAndId(String groupId, int min, int interval)throws Exception{
-        EntityManager em = emf.createEntityManager();
+    public GroupInformation updGroupInformationYearByIntervalAndId(String groupId, int min, int interval){
+        EntityManager em = EMF.createEntityManager();
         try{
             return (GroupInformation) em.createNamedQuery("GroupInformation.updTopInfluencers_year")
                     .setParameter("in_group_id", groupId)
@@ -128,10 +122,9 @@ public class GroupRatingDao {
     /**
      * Actualiza la información en los grupos referente a un año
      * @return 
-     * @throws Exception 
      */
-    public GroupInformation updTablesInformationYear()throws Exception{
-        EntityManager em = emf.createEntityManager();
+    public GroupInformation updTablesInformationYear(){
+        EntityManager em = EMF.createEntityManager();
         try{
             return (GroupInformation) em.createNamedQuery("GroupInformation.updTablesInformationYear")
                     .getSingleResult();
@@ -140,31 +133,38 @@ public class GroupRatingDao {
                 em.close();
         }
     }
+    
     /**
      * Traer todos los datos informativos de los grupos
      * @return
-     * @throws Exception 
      */
-    public List<GroupInformation> findAllGroups() throws Exception{
-        EntityManager em = emf.createEntityManager();
+    public List<GroupInformation> findAllGroups(){
+        EntityManager em = EMF.createEntityManager();
         try{
             return (List<GroupInformation>) em.createNamedQuery("GroupInformation.findAll")
                     .getResultList();
         }finally{
-            if(em.isOpen())
+            if(em.isOpen()){
                 em.close();
+            }
         }
     }
     
-    public GroupInformation findGroupActivityByGroupId(String groupId) throws Exception{
-        EntityManager em = emf.createEntityManager();
+    /**
+     * 
+     * @param groupId
+     * @return 
+     */
+    public GroupInformation findGroupActivityByGroupId(String groupId){
+        EntityManager em = EMF.createEntityManager();
         try{
             return (GroupInformation) em.createNamedQuery("GroupInformation.findGroupActivityByGroupId")
                     .setParameter("group_id", groupId)
                     .getSingleResult();
         }finally{
-            if(em.isOpen())
+            if(em.isOpen()){
                 em.close();
+            }
         }
     }
     
@@ -172,22 +172,27 @@ public class GroupRatingDao {
      * 
      * @param groupId
      * @return
-     * @throws Exception 
      */
-    public GroupInformation updTopInfluencersMonthlyByGroupId(String groupId) throws Exception{
-        EntityManager em = emf.createEntityManager();
+    public GroupInformation updTopInfluencersMonthlyByGroupId(String groupId){
+        EntityManager em = EMF.createEntityManager();
         try{
             return (GroupInformation) em.createNamedQuery("GroupInformation.updTopInfluencers_monthBatch")
                     .setParameter("group_id", groupId)
                     .getSingleResult();
         }finally{
-            if(em.isOpen())
+            if(em.isOpen()){
                 em.close();
+            }
         }
     }
-
+    
+    /**
+     * 
+     * @param groupId
+     * @return 
+     */
     public List<GroupAdminsInformation> findAdminsByGroupId(String groupId){
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = EMF.createEntityManager();
         try{
             return (List<GroupAdminsInformation>) em.createNamedQuery("GroupInformation.findAdminsByGroupId")
                     .setParameter("group_id", groupId)

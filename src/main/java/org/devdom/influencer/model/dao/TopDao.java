@@ -1,5 +1,6 @@
 package org.devdom.influencer.model.dao;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,16 +11,17 @@ import org.devdom.influencer.model.dto.Top;
  *
  * @author Carlos Vásquez Polanco
  */
-public class TopDao {
+public class TopDao implements Serializable{
+
+    private static final long serialVersionUID = -1906991153038758508L;
 
     /**
      * Top 20 de los developers más influyentes a nivel general
      * 
      * @param groupId
      * @return
-     * @throws Exception 
      */
-    public List<Top> findTop20Devs(String groupId) throws Exception{
+    public List<Top> findTop20Devs(String groupId){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa");
         EntityManager em = emf.createEntityManager();
         List<Top> list;
@@ -28,11 +30,13 @@ public class TopDao {
                     .setParameter("group_id", groupId)
                     .getResultList();
         }finally{
-            if(em!=null|em.isOpen())
+            if(em!=null & em.isOpen()){
                 em.close();
-            
-            if(emf.isOpen())
+            }
+
+            if(emf.isOpen()){
                 emf.close();
+            }
         }
         return list;
     }
@@ -42,9 +46,8 @@ public class TopDao {
      * 
      * @param groupId
      * @return
-     * @throws Exception 
      */
-    public List<Top> findTop300Devs(String groupId) throws Exception{
+    public List<Top> findTop300Devs(String groupId){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa");
         EntityManager em = emf.createEntityManager();
         List<Top> list;
@@ -52,11 +55,12 @@ public class TopDao {
             list = (List<Top>) em.createNamedQuery("Top.findTop300DevsInfluents")
                     .getResultList();
         }finally{
-            if(em!=null|em.isOpen())
+            if(em!=null & em.isOpen()){
                 em.close();
-            
-            if(emf.isOpen())
+            }
+            if(emf.isOpen()){
                 emf.close();
+            }
         }
         return list;
     }

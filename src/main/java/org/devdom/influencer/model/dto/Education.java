@@ -26,7 +26,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Education.findByType", query = "SELECT e FROM Education e WHERE e.type = :type"),
     @NamedQuery(name = "Education.findByConcentration", query = "SELECT e FROM Education e WHERE e.concentration = :concentration")})
 public class Education implements Serializable {
-    private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 5677685739022698750L;    
     @Id
     @Basic(optional = false)
     @NotNull

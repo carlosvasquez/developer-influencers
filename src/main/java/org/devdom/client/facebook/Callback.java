@@ -19,18 +19,19 @@ import org.devdom.influencer.model.dto.FacebookMember;
 import org.devdom.influencer.model.dto.FacebookProfile;
 import org.devdom.influencer.util.API;
 import facebook4j.internal.logging.Logger;
+import java.io.Serializable;
 
 
 /**
  *
  * @author Carlos Vasquez Polanco
  */
-public class Callback extends HttpServlet{
-    
-    private static final long serialVersionUID = 6305643034487441839L;
-    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa");
+public class Callback extends HttpServlet implements Serializable{
+
+    private static final long serialVersionUID = -3080527969297265840L;
+    private static final EntityManagerFactory EMF = Persistence.createEntityManagerFactory("jpa");
     private AdministrationController admin;
-    private static final Logger logger = Logger.getLogger(Callback.class);
+    private static final Logger LOG = Logger.getLogger(Callback.class);
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,8 +42,9 @@ public class Callback extends HttpServlet{
         try {
             facebook.getOAuthAccessToken(oauthCode);
             setProfile(request,facebook);
+            response.sendRedirect(request.getContextPath() + "/");
         } catch (FacebookException ex){ 
-            logger.error(ex.getMessage(),ex);
+            LOG.error(ex.getMessage(),ex);
             request.getSession().invalidate();
             
             String viewId = admin.getLastViewId();
@@ -53,7 +55,6 @@ public class Callback extends HttpServlet{
 
             response.sendRedirect(request.getContextPath() + viewId);
         }
-        response.sendRedirect(request.getContextPath() + "/");
     }
     
     private void setProfile(HttpServletRequest request, Facebook facebook){
@@ -81,19 +82,14 @@ public class Callback extends HttpServlet{
                     request.getSession().setAttribute("profile", profile);
 
                     syncLocation(location);
-                    
                 } catch (JSONException ex) {
-                    logger.error(ex.getMessage(),ex);
+                    LOG.error(ex.getMessage(),ex);
                 }
             }
             
-            try {
-                updateMember(profile);
-            } catch (Exception ex) {
-                logger.error(ex.getMessage(),ex);
-            }
+            updateMember(profile);
         } catch (FacebookException ex) {
-            logger.error(ex.getMessage(),ex);
+            LOG.error(ex.getMessage(),ex);
         }
     }
     
@@ -101,9 +97,9 @@ public class Callback extends HttpServlet{
      * 
      * @param profile 
      */
-    private void updateMember(FacebookProfile profile) throws Exception{
+    private void updateMember(FacebookProfile profile){
 
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = EMF.createEntityManager();
         try{ 
             em.getTransaction().begin();
             FacebookMember member = new FacebookMember();
@@ -125,14 +121,15 @@ public class Callback extends HttpServlet{
     }
 
     private void syncLocation(JSONObject location) {
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = EMF.createEntityManager();
         try {
             Worker.syncLocation(location, "", em);
         } catch (JSONException ex) {
-            logger.error(ex.getMessage(),ex);
+            LOG.error(ex.getMessage(),ex);
         }finally{
-            if(em.isOpen())
+            if(em.isOpen()){
                 em.close();
+            }
         }
     }
 }

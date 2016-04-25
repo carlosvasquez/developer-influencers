@@ -26,15 +26,15 @@ public class SignIn extends HttpServlet{
 
     private static final long serialVersionUID = -7453606094644144082L;
     private Facebook facebook;
-    private static final ConfigurationBuilder cb = Configuration.getFacebookConfig();
-    private static facebook4j.conf.Configuration configuration = cb.build();
-    private static final Logger logger = Logger.getLogger(Callback.class);
+    private static final ConfigurationBuilder CB = Configuration.getFacebookConfig();
+    private static final facebook4j.conf.Configuration CONFIGURATION = CB.build();
+    private static final Logger LOG = Logger.getLogger(SignIn.class);
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try{
-            facebook = new FacebookFactory(configuration).getInstance();
+            facebook = new FacebookFactory(CONFIGURATION).getInstance();
             request.getSession().setAttribute("facebook", facebook);
 
             StringBuffer callbackURL = request.getRequestURL();
@@ -42,7 +42,7 @@ public class SignIn extends HttpServlet{
             callbackURL.replace(index, callbackURL.length(), "").append("/callback");
             response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
         }catch(IOException ex){
-            logger.error(ex.getMessage(),ex);
+            LOG.error(ex.getMessage(),ex);
         }
     }
     
@@ -54,13 +54,13 @@ public class SignIn extends HttpServlet{
      */
     private AccessToken getRawFacebookExchangeToken() throws FacebookException, JSONException{
         
-        String appId = configuration.getOAuthAppId();
-        String secret = configuration.getOAuthAppSecret();
-        String oldToken = configuration.getOAuthAccessToken();
+        String appId = CONFIGURATION.getOAuthAppId();
+        String secret = CONFIGURATION.getOAuthAppSecret();
+        String oldToken = CONFIGURATION.getOAuthAccessToken();
         
         String url = "https://graph.facebook.com/oauth/access_token?client_id="+appId+"&client_secret="+secret+"&grant_type=fb_exchange_token&fb_exchange_token="+oldToken;
 
-        logger.info("entro a generar el nuevo token con el URL "+ url);
+        LOG.info("entro a generar el nuevo token con el URL "+ url);
         JSONObject json = getRawFacebookCall(url);
 
         return new AccessToken(json.getString("access_token"), json.getLong("expires"));

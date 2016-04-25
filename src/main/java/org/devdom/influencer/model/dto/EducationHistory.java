@@ -28,7 +28,9 @@ import org.eclipse.persistence.annotations.StoredProcedureParameter;
                                 )
 })
 public class EducationHistory implements Serializable {
-    
+
+    private static final long serialVersionUID = 5306224326824069189L;
+
     @Id
     @Column(name = "institution_id")
     private String institutionId;

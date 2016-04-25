@@ -36,8 +36,8 @@ import org.devdom.influencer.util.Configuration;
 public class FacebookDao {
 
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa");
-    private static final ConfigurationBuilder cb = Configuration.getFacebookConfig();
-    Facebook facebook = new FacebookFactory(cb.build()).getInstance();
+    private static final ConfigurationBuilder CB = Configuration.getFacebookConfig();
+    Facebook facebook = new FacebookFactory(CB.build()).getInstance();
     public FacebookDao(){ }
 
     /**
@@ -105,34 +105,37 @@ public class FacebookDao {
                     group = facebook.getGroupFeed(groupId,reading);
                 }
 
-                records += group.size();
-                group.stream().forEach((post) -> {
-                    if(post.getFrom()!=null){
-                        try{
-                            int likes = getPostLikes(post);
-                            FacebookPost newPost = new FacebookPost();
-                            newPost.setPostId(post.getId().split("_")[1]);
-                            newPost.setFromId(post.getFrom().getId());
-                            newPost.setCreationDate(post.getCreatedTime());
-                            newPost.setLikeCount(likes);
-                            newPost.setMessage(post.getMessage());
-                            em.merge(newPost);
-                        }catch(Exception ex){
-                            Logger.getLogger(FacebookDao.class.getName()).log(Level.SEVERE, null, ex);
+                if(group!=null){
+                    records += group.size();
+                    group.stream().forEach((post) -> {
+                        if(post.getFrom()!=null){
+                            try{
+                                int likes = getPostLikes(post);
+                                FacebookPost newPost = new FacebookPost();
+                                newPost.setPostId(post.getId().split("_")[1]);
+                                newPost.setFromId(post.getFrom().getId());
+                                newPost.setCreationDate(post.getCreatedTime());
+                                newPost.setLikeCount(likes);
+                                newPost.setMessage(post.getMessage());
+                                em.merge(newPost);
+                            }catch(Exception ex){
+                                Logger.getLogger(FacebookDao.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            syncMessageInformation(em,post);
                         }
-                        syncMessageInformation(em,post);
-                    }
-                });
-                em.getTransaction().commit();
-                paging = group.getPaging();
-                group = facebook.fetchNext(paging);
+                    });
+                    em.getTransaction().commit();
+                    paging = group.getPaging();
+                    group = facebook.fetchNext(paging);
+                }
             }
 
         } catch (FacebookException | IllegalArgumentException ex) {
             Logger.getLogger(FacebookDao.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
-            if(em!=null|em.isOpen())
+            if(em!=null & em.isOpen()){
                 em.close();
+            }
         }
     }
     
@@ -258,8 +261,9 @@ public class FacebookDao {
                 
             }
         }finally{
-            if(em!=null|em.isOpen())
+            if(em!=null & em.isOpen()){
                 em.close();
+            }
         }
     }
 

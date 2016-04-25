@@ -7,23 +7,25 @@ import facebook4j.conf.ConfigurationBuilder;
 import facebook4j.internal.logging.Logger;
 import facebook4j.internal.org.json.JSONException;
 import facebook4j.internal.org.json.JSONObject;
+import java.io.Serializable;
 import org.devdom.influencer.util.Configuration;
 
 /**
  *
  * @author Carlos Vasquez
  */
-public class Oauth {
+public class Oauth implements Serializable{
 
-    private static final Logger logger = Logger.getLogger(Oauth.class);
-    
+    private static final Logger LOG = Logger.getLogger(Oauth.class);
+    private static final long serialVersionUID = -5036372012843126198L;
+
     /**
      * 
      * @param accessType
      * @return 
      */
     public static String getNewToken(String accessType){
-        logger.info("creando nuevo token");
+        LOG.info("creando nuevo token");
         ConfigurationBuilder cb = Configuration.getFacebookConfig();
         facebook4j.conf.Configuration config = cb.build();
         String oathAppId = config.getOAuthAppId();
@@ -36,14 +38,14 @@ public class Oauth {
         oauthUrl += "&client_secret="+oathAppSecret;
         oauthUrl += "&fb_exchange_token="+oldToken;
 
-        logger.info("oathAppId:"+oathAppId);
-        logger.info("oathAppSecret:"+oathAppSecret);
-        logger.info("token URL:"+ oauthUrl);
+        LOG.info("oathAppId:"+oathAppId);
+        LOG.info("oathAppSecret:"+oathAppSecret);
+        LOG.info("token URL:"+ oauthUrl);
 
         try {
             return getRawFacebookCall(oauthUrl, accessType);
         } catch (Exception ex) {
-            logger.error(ex.getMessage(),ex);
+            LOG.error(ex.getMessage(),ex);
             return "";
         }
     }
@@ -57,7 +59,7 @@ public class Oauth {
         String newToken = getNewToken(AcceptType.APPLICATION_JSON);
         newToken = "{"+newToken+"}";
         newToken = newToken.replace("&expires=",",expires=");
-        logger.info(newToken);
+        LOG.info(newToken);
         return new JSONObject(newToken);
     }
     
@@ -65,7 +67,7 @@ public class Oauth {
      * 
      * @param url
      * @return 
-     */
+     
     private JSONObject getRawFacebookCall(String url){
 
         try {
@@ -86,11 +88,12 @@ public class Oauth {
             return new JSONObject(output);
 
         } catch (RuntimeException | JSONException ex) { 
-            logger.error(ex.getMessage(), ex);
+            LOG.error(ex.getMessage(), ex);
         }
         return null;
     }
-    
+    */
+
     /**
      * 
      * @param url
@@ -98,7 +101,7 @@ public class Oauth {
      * @return
      * @throws Exception 
      */
-    private static String getRawFacebookCall(String url, String accept) throws Exception{
+    private static String getRawFacebookCall(String url, String accept){
 
         Client client = Client.create();
         WebResource webResource = client.resource(url);
