@@ -12,7 +12,7 @@ import org.eclipse.persistence.annotations.StoredProcedureParameter;
 
 /**
  *
- * @author Ronny Placencia
+ * @author Carlos Vásquez
  */
 @Entity
 @XmlRootElement
@@ -32,16 +32,16 @@ public class WorkHistory implements Serializable {
     private static final long serialVersionUID = 7126305115992683492L;
     @Id
     @Column(name = "work_id")
-    String workId;
+    protected String workId;
     
-    @Column(name = "work")
-    String work;
+    @Column(name = "work_name")
+    protected String workName;
     
     @Column(name = "category")
-    String category;
+    protected String category;
     
     @Column(name = "from_id")
-    String fromId;
+    protected String fromId;
 
     public String getWorkId() {
         return workId;
@@ -51,12 +51,12 @@ public class WorkHistory implements Serializable {
         this.workId = workId;
     }
 
-    public String getWork() {
-        return work;
+    public String getWorkName() {
+        return workName;
     }
 
-    public void setWork(String work) {
-        this.work = work;
+    public void setWorkName(String workName) {
+        this.workName = workName;
     }
 
     public String getCategory() {
@@ -77,7 +77,7 @@ public class WorkHistory implements Serializable {
 
     @Override
     public String toString() {
-        return "WorkHistory{" + "workId=" + workId + ", work=" + work + ", category=" + category + ", fromId=" + fromId + '}';
+        return "WorkHistory{" + "workId=" + workId + ", work=" + workName + ", category=" + category + ", fromId=" + fromId + '}';
     }
     
 }
