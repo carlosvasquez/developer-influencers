@@ -30,8 +30,7 @@ import org.eclipse.persistence.annotations.StoredProcedureParameter;
 })
 public class FacebookProfile implements Serializable {
 
-    private static final long serialVersionUID = 3586995145832708461L;
-    
+    private static final long serialVersionUID = 3586995145832708461L;    
     @Id
     @Column(name = "uid")
     private String uid = "";
@@ -58,6 +57,14 @@ public class FacebookProfile implements Serializable {
     private String currentLocation;
 
     private String pic_with_logo;
+
+    public FacebookProfile() {
+        super();
+    }
+
+    FacebookProfile(String uid) {
+        this.uid = uid;
+    }
     /**
      * @return the uid
      */

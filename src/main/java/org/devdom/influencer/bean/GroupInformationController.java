@@ -23,8 +23,8 @@ public class GroupInformationController implements Serializable{
 
     private static final long serialVersionUID = -8766418676453748948L;
     private final GroupRatingDao dao = new GroupRatingDao();
-    private final ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-    private final Map<String,String> request = externalContext.getRequestParameterMap();        
+    private static final ExternalContext EXTERNAL_CONTEXT = FacesContext.getCurrentInstance().getExternalContext();
+    private final Map<String,String> request = EXTERNAL_CONTEXT.getRequestParameterMap();        
     private final String groupId = request.get("g");
     
     public GroupInformation getGroupInformation(){

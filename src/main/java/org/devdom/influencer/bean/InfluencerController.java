@@ -1,6 +1,7 @@
 package org.devdom.influencer.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -64,7 +65,7 @@ public class InfluencerController implements Serializable{
             return (List<GroupRating>) daoGroup.findGroupsRatingByUserId(FROM_ID);
         }catch(Exception ex){
             Logger.getLogger(InfluencerController.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+            return new ArrayList<>();
         }
     }
     

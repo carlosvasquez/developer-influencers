@@ -67,5 +67,10 @@ public class MasterProfile implements Serializable {
     public void setEducation(List<EducationHistory> education) {
         this.education = education;
     }
-    
+
+    @Override
+    public String toString() {
+        return "MasterProfile{" + "fromId=" + fromId + ", profile=" + profile + ", skill=" + skill + ", work=" + work + ", education=" + education + '}';
+    }
+
 }

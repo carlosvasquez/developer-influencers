@@ -1,6 +1,7 @@
 package org.devdom.influencer.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -76,7 +77,7 @@ public class ProfileController implements Serializable{
         String html = header("Historial laboral","color:blue;width:170px;");
         html += "<div style=\"position:relative;top:-50px;\">";
         html = getWorks().stream().map((work) -> 
-                "<h5 style=\"float:left;padding-left:20px;\"><span class=\"label label-default\">"+work.getWork()+"</span></h5>")
+                "<h5 style=\"float:left;padding-left:20px;\"><span class=\"label label-default\">"+work.getWorkName()+"</span></h5>")
                 .reduce(html, String::concat);
         html +="</div><br/>";
         return html;
@@ -124,7 +125,7 @@ public class ProfileController implements Serializable{
                 Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return null;
+        return new ArrayList<>();
     }
     
     public List<WorkHistory> getWorks(){

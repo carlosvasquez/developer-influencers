@@ -55,7 +55,7 @@ public class YearStat implements Serializable {
     private static final long serialVersionUID = 2830831567419945148L;
     @Id
     @Column(name = "id")
-    private int id;
+    private Integer id;
     @Column(name = "group_id")
     private String groupId;
     @Column(name = "group_name")
@@ -67,54 +67,54 @@ public class YearStat implements Serializable {
     @Column(name = "previous_rating")
     private String previousRating;
     @Column(name = "current_likes_count")
-    private int currentLikesCount;
+    private Integer currentLikesCount;
     @Column(name = "current_posts_likes_count")
-    private int currentPostsLikesCount;
+    private Integer currentPostsLikesCount;
     @Column(name = "previous_posts_likes_count")
-    private int previousPostsLikesCount;
+    private Integer previousPostsLikesCount;
     @Column(name = "current_comments_likes_count")
-    private int currentCommentsLikesCount;
+    private Integer currentCommentsLikesCount;
     @Column(name = "previous_comments_likes_count")
-    private int previousCommentsLikesCount;
+    private Integer previousCommentsLikesCount;
     @Column(name = "current_interactions_count")
-    private int currentInteractionsCount;
+    private Integer currentInteractionsCount;
     @Column(name = "previous_interactions_count")
-    private int previousInteractionsCount;
+    private Integer previousInteractionsCount;
     @Column(name = "current_posts_count")
-    private int currentPostsCount;
+    private Integer currentPostsCount;
     @Column(name = "previous_posts_count")
-    private int previousPostsCount;
+    private Integer previousPostsCount;
     @Column(name = "current_comments_count")
-    private int current_comments_count;
+    private Integer current_comments_count;
     @Column(name = "previous_comments_count")
-    private int previousCommentsCount;
+    private Integer previousCommentsCount;
     @Column(name = "current_mentions_count")
-    private int currentMentionsCount;
+    private Integer currentMentionsCount;
     @Column(name = "previous_mentions_count")
-    private int previousMentionsCount;
+    private Integer previousMentionsCount;
     @Column(name = "current_mentions_posts_count")
-    private int currentMentionsPostsCount;
+    private Integer currentMentionsPostsCount;
     @Column(name = "previous_mentions_posts_count")
-    private int previousMentionsPostsCount;
+    private Integer previousMentionsPostsCount;
     @Column(name = "current_mentions_comments_count")
-    private int currentMentionsCommentsCount;
+    private Integer currentMentionsCommentsCount;
     @Column(name = "previous_mentions_comments_count")
-    private int previousMentionsCommentsCount;
+    private Integer previousMentionsCommentsCount;
     @Column(name = "current_position")
-    private int currentPosition;
+    private Integer currentPosition;
     @Column(name = "previous_position")
-    private int previousPosition;
+    private Integer previousPosition;
     @Column(name = "created_time")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date createdTime;
     @Column(name = "rank_indicator")
     private String rankIndicator;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -142,155 +142,155 @@ public class YearStat implements Serializable {
         this.previousRating = previousRating;
     }
 
-    public int getCurrentLikesCount() {
+    public Integer getCurrentLikesCount() {
         return currentLikesCount;
     }
 
-    public void setCurrentLikesCount(int currentLikesCount) {
+    public void setCurrentLikesCount(Integer currentLikesCount) {
         this.currentLikesCount = currentLikesCount;
     }
 
-    public int getCurrentPostsLikesCount() {
+    public Integer getCurrentPostsLikesCount() {
         return currentPostsLikesCount;
     }
 
-    public void setCurrentPostsLikesCount(int currentPostsLikesCount) {
+    public void setCurrentPostsLikesCount(Integer currentPostsLikesCount) {
         this.currentPostsLikesCount = currentPostsLikesCount;
     }
 
-    public int getPreviousPostsLikesCount() {
+    public Integer getPreviousPostsLikesCount() {
         return previousPostsLikesCount;
     }
 
-    public void setPreviousPostsLikesCount(int previousPostsLikesCount) {
+    public void setPreviousPostsLikesCount(Integer previousPostsLikesCount) {
         this.previousPostsLikesCount = previousPostsLikesCount;
     }
 
-    public int getCurrentCommentsLikesCount() {
+    public Integer getCurrentCommentsLikesCount() {
         return currentCommentsLikesCount;
     }
 
-    public void setCurrentCommentsLikesCount(int currentCommentsLikesCount) {
+    public void setCurrentCommentsLikesCount(Integer currentCommentsLikesCount) {
         this.currentCommentsLikesCount = currentCommentsLikesCount;
     }
 
-    public int getPreviousCommentsLikesCount() {
+    public Integer getPreviousCommentsLikesCount() {
         return previousCommentsLikesCount;
     }
 
-    public void setPreviousCommentsLikesCount(int previousCommentsLikesCount) {
+    public void setPreviousCommentsLikesCount(Integer previousCommentsLikesCount) {
         this.previousCommentsLikesCount = previousCommentsLikesCount;
     }
 
-    public int getCurrentInteractionsCount() {
+    public Integer getCurrentInteractionsCount() {
         return currentInteractionsCount;
     }
 
-    public void setCurrentInteractionsCount(int currentInteractionsCount) {
+    public void setCurrentInteractionsCount(Integer currentInteractionsCount) {
         this.currentInteractionsCount = currentInteractionsCount;
     }
 
-    public int getPreviousInteractionsCount() {
+    public Integer getPreviousInteractionsCount() {
         return previousInteractionsCount;
     }
 
-    public void setPreviousInteractionsCount(int previousInteractionsCount) {
+    public void setPreviousInteractionsCount(Integer previousInteractionsCount) {
         this.previousInteractionsCount = previousInteractionsCount;
     }
 
-    public int getCurrentPostsCount() {
+    public Integer getCurrentPostsCount() {
         return currentPostsCount;
     }
 
-    public void setCurrentPostsCount(int currentPostsCount) {
+    public void setCurrentPostsCount(Integer currentPostsCount) {
         this.currentPostsCount = currentPostsCount;
     }
 
-    public int getPreviousPostsCount() {
+    public Integer getPreviousPostsCount() {
         return previousPostsCount;
     }
 
-    public void setPreviousPostsCount(int previousPostsCount) {
+    public void setPreviousPostsCount(Integer previousPostsCount) {
         this.previousPostsCount = previousPostsCount;
     }
 
-    public int getCurrent_comments_count() {
+    public Integer getCurrent_comments_count() {
         return current_comments_count;
     }
 
-    public void setCurrent_comments_count(int current_comments_count) {
+    public void setCurrent_comments_count(Integer current_comments_count) {
         this.current_comments_count = current_comments_count;
     }
 
-    public int getPreviousCommentsCount() {
+    public Integer getPreviousCommentsCount() {
         return previousCommentsCount;
     }
 
-    public void setPreviousCommentsCount(int previousCommentsCount) {
+    public void setPreviousCommentsCount(Integer previousCommentsCount) {
         this.previousCommentsCount = previousCommentsCount;
     }
 
-    public int getCurrentMentionsCount() {
+    public Integer getCurrentMentionsCount() {
         return currentMentionsCount;
     }
 
-    public void setCurrentMentionsCount(int currentMentionsCount) {
+    public void setCurrentMentionsCount(Integer currentMentionsCount) {
         this.currentMentionsCount = currentMentionsCount;
     }
 
-    public int getPreviousMentionsCount() {
+    public Integer getPreviousMentionsCount() {
         return previousMentionsCount;
     }
 
-    public void setPreviousMentionsCount(int previousMentionsCount) {
+    public void setPreviousMentionsCount(Integer previousMentionsCount) {
         this.previousMentionsCount = previousMentionsCount;
     }
 
-    public int getCurrentMentionsPostsCount() {
+    public Integer getCurrentMentionsPostsCount() {
         return currentMentionsPostsCount;
     }
 
-    public void setCurrentMentionsPostsCount(int currentMentionsPostsCount) {
+    public void setCurrentMentionsPostsCount(Integer currentMentionsPostsCount) {
         this.currentMentionsPostsCount = currentMentionsPostsCount;
     }
 
-    public int getPreviousMentionsPostsCount() {
+    public Integer getPreviousMentionsPostsCount() {
         return previousMentionsPostsCount;
     }
 
-    public void setPreviousMentionsPostsCount(int previousMentionsPostsCount) {
+    public void setPreviousMentionsPostsCount(Integer previousMentionsPostsCount) {
         this.previousMentionsPostsCount = previousMentionsPostsCount;
     }
 
-    public int getCurrentMentionsCommentsCount() {
+    public Integer getCurrentMentionsCommentsCount() {
         return currentMentionsCommentsCount;
     }
 
-    public void setCurrentMentionsCommentsCount(int currentMentionsCommentsCount) {
+    public void setCurrentMentionsCommentsCount(Integer currentMentionsCommentsCount) {
         this.currentMentionsCommentsCount = currentMentionsCommentsCount;
     }
 
-    public int getPreviousMentionsCommentsCount() {
+    public Integer getPreviousMentionsCommentsCount() {
         return previousMentionsCommentsCount;
     }
 
-    public void setPreviousMentionsCommentsCount(int previousMentionsCommentsCount) {
+    public void setPreviousMentionsCommentsCount(Integer previousMentionsCommentsCount) {
         this.previousMentionsCommentsCount = previousMentionsCommentsCount;
     }
 
-    public int getCurrentPosition() {
+    public Integer getCurrentPosition() {
         return currentPosition;
     }
 
-    public void setCurrentPosition(int currentPosition) {
+    public void setCurrentPosition(Integer currentPosition) {
         this.currentPosition = currentPosition;
     }
 
-    public int getPreviousPosition() {
+    public Integer getPreviousPosition() {
         return previousPosition;
     }
 
-    public void setPreviousPosition(int previousPosition) {
+    public void setPreviousPosition(Integer previousPosition) {
         this.previousPosition = previousPosition;
     }
 

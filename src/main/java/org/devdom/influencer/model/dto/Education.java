@@ -47,13 +47,6 @@ public class Education implements Serializable {
     @Column(name = "concentration")
     private String concentration;
 
-    public Education() {
-    }
-
-    public Education(String fromId) {
-        this.fromId = fromId;
-    }
-
     public Education(String fromId, String institutionId) {
         this.fromId = fromId;
         this.institutionId = institutionId;

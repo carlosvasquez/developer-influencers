@@ -52,6 +52,10 @@ public class Skill implements Serializable {
     @Column(name = "imagen_icon")
     String imagenIcon;
 
+    Skill(String uid) {
+        this.uid = uid;
+    }
+
     public String getSkillId() {
         return skillId;
     }

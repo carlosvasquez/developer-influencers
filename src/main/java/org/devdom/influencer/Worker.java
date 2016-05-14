@@ -13,6 +13,7 @@ import facebook4j.internal.logging.Logger;
 import facebook4j.internal.org.json.JSONArray;
 import facebook4j.internal.org.json.JSONException;
 import facebook4j.internal.org.json.JSONObject;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -668,7 +669,7 @@ public class Worker implements Runnable{
         }catch(Exception ex){
             logger.error(ex.getMessage(),ex);
         }
-        return null;
+        return new ArrayList<>();
     }
 
     private void updateGroupMonthStat(String groupId, String groupName) throws Exception {
@@ -714,9 +715,7 @@ public class Worker implements Runnable{
                 String institutionID = school.isNull("id")?"":school.getString("id");
                 if("College".equals(type)){
 
-                    Education newEducation = new Education();
-                    newEducation.setFromId(uid);
-                    newEducation.setInstitutionId(institutionID);
+                    Education newEducation = new Education(uid, institutionID);
                     newEducation.setType(type);
                     syncRawInstitutionInformation(institutionID, em);
                     em.merge(newEducation);
