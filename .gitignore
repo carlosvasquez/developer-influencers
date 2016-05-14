@@ -13,3 +13,4 @@ hs_err_pid*
 /target/
 /src/main/java/org/devdom/influencer/util/Configuration.java
 /src/main/setup/glassfish-resources.xml
+/nbproject/
