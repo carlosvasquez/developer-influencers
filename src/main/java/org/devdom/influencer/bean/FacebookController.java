@@ -33,9 +33,9 @@ public class FacebookController implements Serializable{
         FacebookProfile profile = (FacebookProfile) session.getAttribute("profile");
         if(profile==null)
             return "";
-        if(profile.getPic_with_logo()==null)
+        if(profile.getPicWithLogo()==null)
             return "";
-        return profile.getPic_with_logo();
+        return profile.getPicWithLogo();
     }
     
     /**

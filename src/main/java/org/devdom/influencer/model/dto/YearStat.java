@@ -85,7 +85,7 @@ public class YearStat implements Serializable {
     @Column(name = "previous_posts_count")
     private Integer previousPostsCount;
     @Column(name = "current_comments_count")
-    private Integer current_comments_count;
+    private Integer currentCommentsCount;
     @Column(name = "previous_comments_count")
     private Integer previousCommentsCount;
     @Column(name = "current_mentions_count")
@@ -214,12 +214,12 @@ public class YearStat implements Serializable {
         this.previousPostsCount = previousPostsCount;
     }
 
-    public Integer getCurrent_comments_count() {
-        return current_comments_count;
+    public Integer getCurrentCommentsCount() {
+        return currentCommentsCount;
     }
 
-    public void setCurrent_comments_count(Integer current_comments_count) {
-        this.current_comments_count = current_comments_count;
+    public void setCurrentCommentsCount(Integer currentCommentsCount) {
+        this.currentCommentsCount = currentCommentsCount;
     }
 
     public Integer getPreviousCommentsCount() {
@@ -328,7 +328,7 @@ public class YearStat implements Serializable {
 
     @Override
     public String toString() {
-        return "YearStat{" + "id=" + id + ", groupId=" + groupId + ", groupName=" + groupName + ", fromId=" + fromId + ", currentRating=" + currentRating + ", previousRating=" + previousRating + ", currentLikesCount=" + currentLikesCount + ", currentPostsLikesCount=" + currentPostsLikesCount + ", previousPostsLikesCount=" + previousPostsLikesCount + ", currentCommentsLikesCount=" + currentCommentsLikesCount + ", previousCommentsLikesCount=" + previousCommentsLikesCount + ", currentInteractionsCount=" + currentInteractionsCount + ", previousInteractionsCount=" + previousInteractionsCount + ", currentPostsCount=" + currentPostsCount + ", previousPostsCount=" + previousPostsCount + ", current_comments_count=" + current_comments_count + ", previousCommentsCount=" + previousCommentsCount + ", currentMentionsCount=" + currentMentionsCount + ", previousMentionsCount=" + previousMentionsCount + ", currentMentionsPostsCount=" + currentMentionsPostsCount + ", previousMentionsPostsCount=" + previousMentionsPostsCount + ", currentMentionsCommentsCount=" + currentMentionsCommentsCount + ", previousMentionsCommentsCount=" + previousMentionsCommentsCount + ", currentPosition=" + currentPosition + ", previousPosition=" + previousPosition + ", createdTime=" + createdTime + ", rankIndicator=" + rankIndicator + '}';
+        return "YearStat{" + "id=" + id + ", groupId=" + groupId + ", groupName=" + groupName + ", fromId=" + fromId + ", currentRating=" + currentRating + ", previousRating=" + previousRating + ", currentLikesCount=" + currentLikesCount + ", currentPostsLikesCount=" + currentPostsLikesCount + ", previousPostsLikesCount=" + previousPostsLikesCount + ", currentCommentsLikesCount=" + currentCommentsLikesCount + ", previousCommentsLikesCount=" + previousCommentsLikesCount + ", currentInteractionsCount=" + currentInteractionsCount + ", previousInteractionsCount=" + previousInteractionsCount + ", currentPostsCount=" + currentPostsCount + ", previousPostsCount=" + previousPostsCount + ", current_comments_count=" + currentCommentsCount + ", previousCommentsCount=" + previousCommentsCount + ", currentMentionsCount=" + currentMentionsCount + ", previousMentionsCount=" + previousMentionsCount + ", currentMentionsPostsCount=" + currentMentionsPostsCount + ", previousMentionsPostsCount=" + previousMentionsPostsCount + ", currentMentionsCommentsCount=" + currentMentionsCommentsCount + ", previousMentionsCommentsCount=" + previousMentionsCommentsCount + ", currentPosition=" + currentPosition + ", previousPosition=" + previousPosition + ", createdTime=" + createdTime + ", rankIndicator=" + rankIndicator + '}';
     }
 
 }

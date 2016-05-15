@@ -29,6 +29,7 @@ public class GroupAdmin implements Serializable {
     protected GroupAdminPK groupAdminsPK;
 
     public GroupAdmin() {
+        super();
     }
 
     public GroupAdmin(GroupAdminPK groupAdminsPK) {
@@ -56,7 +57,6 @@ public class GroupAdmin implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof GroupAdmin)) {
             return false;
         }

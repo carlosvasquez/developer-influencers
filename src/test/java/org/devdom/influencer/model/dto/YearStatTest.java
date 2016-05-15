@@ -94,7 +94,7 @@ public class YearStatTest implements YearStatConstants{
     @Test
     public void testStep09SetCurrent_comments_count() {
         System.out.println("testStep9SetCurrent_comments_count");
-        yearStat.setCurrent_comments_count(CURRENT_COMMENTS_COUNT); 
+        yearStat.setCurrentCommentsCount(CURRENT_COMMENTS_COUNT); 
     }
     
     /**
@@ -373,7 +373,7 @@ public class YearStatTest implements YearStatConstants{
     @Test
     public void testStep39GetCurrent_comments_count() {
         System.out.println("testStep39GetCurrent_comments_count");
-        assertEquals(CURRENT_COMMENTS_COUNT, yearStat.getCurrent_comments_count());
+        assertEquals(CURRENT_COMMENTS_COUNT, yearStat.getCurrentCommentsCount());
     }
 
     /**

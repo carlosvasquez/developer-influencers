@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -31,12 +30,10 @@ public class Education implements Serializable {
     private static final long serialVersionUID = 5677685739022698750L;    
     @Id
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 120)
     @Column(name = "from_id")
     private String fromId;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 250)
     @Column(name = "institution_id")
     private String institutionId;

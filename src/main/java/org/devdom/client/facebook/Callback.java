@@ -78,7 +78,7 @@ public class Callback extends HttpServlet implements Serializable{
                     profile.setLastName(json.getString("last_name"));
                     profile.setEmail(json.getString("email"));
                     profile.setBirthday(json.getString("birthday_date"));
-                    profile.setPic_with_logo(json.getString("pic_big"));
+                    profile.setPicWithLogo(json.getString("pic_big"));
                     profile.setSex(json.getString("sex"));
                     profile.setCurrentLocationId(location.getString("id"));
                     profile.setCurrentLocation(location.getString("name"));
@@ -110,7 +110,7 @@ public class Callback extends HttpServlet implements Serializable{
             member.setBirthdayDate(profile.getBirthday());
             member.setFirstName(profile.getFirstName());
             member.setLastName(profile.getLastName());
-            member.setPic(profile.getPic_with_logo());
+            member.setPic(profile.getPicWithLogo());
             member.setSex(profile.getSex());
             member.setEmail(profile.getEmail());
             member.setCurrentLocation(profile.getCurrentLocation());

@@ -29,7 +29,7 @@ public class MasterProfileConstants {
         profile.setEmail(EMAIL);
         profile.setFirstName(FIRST_NAME);
         profile.setLastName(LAST_NAME);
-        profile.setPic_with_logo(PIC_WITH_LOGO);
+        profile.setPicWithLogo(PIC_WITH_LOGO);
         profile.setSex(SEX);
         profile.setUid(UID);
         return profile;

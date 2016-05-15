@@ -56,7 +56,7 @@ public class FacebookProfile implements Serializable {
     @Column(name = "current_location")
     private String currentLocation;
 
-    private String pic_with_logo;
+    private String picWithLogo;
 
     public FacebookProfile() {
         super();
@@ -136,17 +136,17 @@ public class FacebookProfile implements Serializable {
     }
 
     /**
-     * @return the pic_with_logo
+     * @return the picWithLogo
      */
-    public String getPic_with_logo() {
-        return pic_with_logo;
+    public String getPicWithLogo() {
+        return picWithLogo;
     }
 
     /**
-     * @param pic_with_logo the pic_with_logo to set
+     * @param picWithLogo the picWithLogo to set
      */
-    public void setPic_with_logo(String pic_with_logo) {
-        this.pic_with_logo = pic_with_logo;
+    public void setPicWithLogo(String picWithLogo) {
+        this.picWithLogo = picWithLogo;
     }
 
     /**

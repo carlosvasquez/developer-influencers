@@ -16,17 +16,16 @@ public class GroupAdminPK implements Serializable {
 
     private static final long serialVersionUID = 7133604320947343865L;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "group_id")
     private String groupId;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "uid")
     private String uid;
 
     public GroupAdminPK() {
+        super();
     }
 
     public GroupAdminPK(String groupId, String uid) {
@@ -60,7 +59,6 @@ public class GroupAdminPK implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof GroupAdminPK)) {
             return false;
         }
