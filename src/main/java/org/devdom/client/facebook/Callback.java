@@ -37,7 +37,7 @@ public class Callback extends HttpServlet implements Serializable{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
         String oauthCode = request.getParameter("code");
-        admin = new AdministrationController(request);
+        Callback.admin = new AdministrationController(request);
         
         try {
             facebook.getOAuthAccessToken(oauthCode);
